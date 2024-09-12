@@ -1,17 +1,16 @@
 class Solution {
-    int getMiddle(Node head) {
-        // Your code here.
+public:
+    int getMiddle(Node* head) {
+        Node* slow = head;
+        Node* fast = head;
         
-        Node slow=head;
-        Node fast=head;
+        if (!head) return -1;  // Edge case: if the list is empty
         
-        while(fast!=null && fast.next!=null)
-        {
-            slow=slow.next;
-            fast=fast.next.next;
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next->next;
+            slow = slow->next;
         }
         
-        
-        return slow.data;
+        return slow->data;
     }
-}
+};
